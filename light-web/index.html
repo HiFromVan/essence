@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>light — 光的本质</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: monospace;
+      color: #555;
+    }
+    canvas { display: block; max-width: 100vmin; max-height: 100vmin; }
+    p { margin-top: 1.2rem; font-size: 0.75rem; letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <p>光线与球面的交点，在数学上就长这个样子</p>
+
+  <script type="module">
+    import init, { render_frame, canvas_size } from './pkg/light_web.js';
+
+    await init();
+
+    const size = canvas_size();
+    const canvas = document.getElementById('c');
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+
+    let time = 0;
+    function frame() {
+      const pixels = render_frame(time);
+      ctx.putImageData(new ImageData(new Uint8ClampedArray(pixels), size, size), 0, 0);
+      time += 0.03;
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  </script>
+</body>
+</html>

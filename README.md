@@ -9,3 +9,9 @@ essence/
   wave/       # 频率的本质——傅里叶，任何周期性的东西
   rhythm/     # 数与节奏——对齐、质数、最小公倍数
 ```
+
+## 演示
+
+| 项目 | 链接 |
+|------|------|
+| light — 光线追踪 | [在线演示](https://HiFromVan.github.io/essence/light/) |
