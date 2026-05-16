@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "light",
+    "motion",
+    "wave",
+    "rhythm",
+]
+resolver = "2"
